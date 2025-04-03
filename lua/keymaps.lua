@@ -26,3 +26,8 @@ map("n", "<leader>u", ":resize +2<CR>", opts)
 map("n", "<leader>d", ":resize -2<CR>", opts)
 map("n", "<leader>t", "<C-w><C-s>:resize +10<CR><C-w><C-w>:terminal<CR>i", opts) -- call terminal and insert
 
+-- Tab management with <leader>z
+map("n", "<leader>zn", ":tabnew<CR>", opts, { desc = "New tab" })
+map("n", "<leader>zc", ":tabclose<CR>", opts, { desc = "Close tab" })
+map("n", "<leader>zl", ":tabnext<CR>", opts, { desc = "Next tab" })
+map("n", "<leader>zh", ":tabprevious<CR>", opts, { desc = "Previous tab" })

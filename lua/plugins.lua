@@ -29,8 +29,7 @@ require("lazy").setup({
   config = function()
     require("nvim-tree").setup {}
   end,
-  },											
-
+  },
   -- lualine
   {
   "nvim-lualine/lualine.nvim",
@@ -44,7 +43,37 @@ require("lazy").setup({
   lazy = false,
   },
 
+  -- Mason 
+  {
+  "williamboman/mason.nvim",
+  build = ":MasonUpdate",
+  config = true
+  },
+  {
+  "williamboman/mason-lspconfig.nvim",
+  config = function()
+    require("mason-lspconfig").setup({
+      ensure_installed = {
+        "lua_ls", -- Lua Language Server (new name!)
+      },
+    })
+  end,
+  },
 
+  -- nvim-treesitter
+  {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = { "lua", "python", "bash", "json", "markdown" },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+    })
+  end,
+  },
 
 
   -- Completion engine
@@ -52,6 +81,9 @@ require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-path" },
+
+  -- Cmp Icons 
+  { "onsails/lspkind.nvim" },
 
   -- Snippets
   { "L3MON4D3/LuaSnip" },

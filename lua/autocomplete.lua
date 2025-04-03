@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 cmp.setup({
   snippet = {
@@ -35,5 +36,36 @@ cmp.setup({
     { name = "buffer" },
     { name = "path" },
   }),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text", -- "text", "symbol", or "symbol_text"
+      maxwidth = 50,        -- optional: limit width
+      ellipsis_char = "...", -- optional: show ... if truncated
+      symbol_map = {
+        Copilot = "",  -- optional: override icon for sources
+      },
+	  -- menu = {
+        -- buffer = "[BUF]",
+        -- nvim_lsp = "[LSP]",
+        -- luasnip = "[SNIP]",
+        -- path = "[PATH]",
+        -- nvim_lua = "[API]",
+      -- },
+    }),
+  },
+  experimental = {
+    ghost_text = {
+      hl_group = "CmpGhostText",
+    },
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+	completion = cmp.config.window.bordered(),
+  },
+})
+
+vim.api.nvim_set_hl(0, "CmpGhostText", {
+  fg = "#5c6370", -- soft gray (you can change this)
+  italic = true,
 })
 
