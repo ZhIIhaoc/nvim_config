@@ -31,3 +31,6 @@ map("n", "<leader>zn", ":tabnew<CR>", opts, { desc = "New tab" })
 map("n", "<leader>zc", ":tabclose<CR>", opts, { desc = "Close tab" })
 map("n", "<leader>zl", ":tabnext<CR>", opts, { desc = "Next tab" })
 map("n", "<leader>zh", ":tabprevious<CR>", opts, { desc = "Previous tab" })
+
+-- diagostics
+map("n", "gl", vim.diagnostic.open_float, opts, { desc = "Show diagnostics under cursor" })
