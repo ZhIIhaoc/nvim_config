@@ -10,4 +10,5 @@ vim.o.visualbell = true
 vim.o.scrolloff = 5
 vim.o.encoding = "utf-8"
 
+vim.o.showtabline = 2
 
