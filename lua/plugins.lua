@@ -26,9 +26,8 @@ require("lazy").setup({
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  config = function()
-    require("nvim-tree").setup {}
-  end,
+  opts = {
+	},
   },
   -- lualine
   {
@@ -90,6 +89,14 @@ require("lazy").setup({
       diagnostics = "nvim_lsp",
     },
   },
+ },
+	
+  {
+  "ojroques/nvim-osc52",
+  config = function()
+    require("osc52").setup()
+    vim.keymap.set("v", "<leader>c", require("osc52").copy_visual, { desc = "Copy to system clipboard" })
+  end,
  },
 
 
